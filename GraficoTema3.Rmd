@@ -12,5 +12,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(rio)
 COVID<- import("data/owid-covid-data.csv")
+
+library(tidyverse)
+ggplot(COVID) + labs(title = "Daily new confirmed COVID-19 deaths per million people", subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.")
+
+
 ```
 
