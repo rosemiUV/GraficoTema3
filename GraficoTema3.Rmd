@@ -1,0 +1,16 @@
+---
+title: "GraficoTema3"
+author: "Grupo V, Tema3 : Visualización de datos"
+date: "2024-03-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(rio)
+COVID<- import("data/owid-covid-data.csv")
+```
+
