@@ -15,7 +15,7 @@ COVID<- import("data/owid-covid-data.csv")
 COVID_paises_interes <- COVID[COVID$location %in% c("Spain","Italy","France","Germany","Canada","Japan","United States","United Kingdom"),]
 
 library(tidyverse)
-ggplot(COVID_paises_interes,aes(x = date, y = total_deaths_per_million, color = location)) + geom_line() + labs(title = "Daily new confirmed COVID-19 deaths per million people", subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.", caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)")
+ggplot(COVID_paises_interes,aes(x = date, y = new_deaths_smoothed_per_million, color = location)) + geom_line() + labs(title = "Daily new confirmed COVID-19 deaths per million people", subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.", caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)",x = "",y= "")
 
 
 ```
