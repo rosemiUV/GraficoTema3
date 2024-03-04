@@ -15,17 +15,29 @@ COVID<- import("data/owid-covid-data.csv")
 COVID_paises_interes <- COVID[COVID$location %in% c("Spain","Italy","France","Germany","Canada","Japan","United States","United Kingdom"),]
 
 library(tidyverse)
-capa_base<- ggplot(COVID_paises_interes,aes(x = date, y = new_deaths_smoothed_per_million, color = location, linetype = "solid", size = location)) + geom_line()
+capa_base <- ggplot(COVID_paises_interes, aes(x = date, y = new_deaths_smoothed_per_million, color = location, size = location)) +
+  geom_line(linetype = "solid")
 
-titulos<- capa_base  + labs(title = "Daily new confirmed COVID-19 deaths per million people", subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.", caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)",x = "",y= "")
+titulos <- capa_base +
+  labs(title = "Daily new confirmed COVID-19 deaths per million people",
+       subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.",
+       x = "", 
+       y = "",caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)")
 
-color_especifico<- titulos  + scale_color_manual(values =c("Spain" = "red", "United States" = "purple", "United Kingdom" = "pink", "Japan" = "darkgrey", "Canada" = "brown", "France"="orange","Germany" = "darkgreen", "Italy"= "lightblue") )
+color_especifico <- titulos +
+  scale_color_manual(values = c("Spain" = "red", "United States" = "purple", "United Kingdom" = "pink", "Japan" = "darkgrey", "Canada" = "brown", "France" = "orange", "Germany" = "darkgreen", "Italy" = "lightblue"))
 
-grosor_linea<- color_especifico +  scale_size_manual(values = c("Spain" = 0.8, "United States" = 0.5, "United Kingdom" = 0.5, "Japan" = 0.5, "Canada" = 0.5, "France" = 0.5, "Germany" = 0.5, "Italy" = 0.5))
+grosor_linea <- color_especifico +
+  scale_size_manual(values = c("Spain" = 0.8, "United States" = 0.5, "United Kingdom" = 0.5, "Japan" = 0.5, "Canada" = 0.5, "France" = 0.5, "Germany" = 0.5, "Italy" = 0.5))
 
-limites_ejes <- grosor_linea + scale_y_continuous(breaks = seq(0, 18, 2)) +   scale_x_date(date_breaks = "8 months", date_labels = "%b%d,%Y",limits =c(min(COVID_paises_interes$date), max(COVID_paises_interes$date)))
- 
-temas_y_background<- limites_ejes + theme_classic() + theme(panel.grid.major.y = element_line(colour = "black", linetype = "dashed"), panel.grid.minor = element_blank()) 
+limites_ejes <- grosor_linea +
+  scale_y_continuous(breaks = seq(0, 18, 2)) +
+  scale_x_date(date_breaks = "8 months", date_labels = "%b%d,%Y", limits = c(min(COVID_paises_interes$date), max(COVID_paises_interes$date)))
+
+temas_y_background <- limites_ejes +
+  theme_classic() +
+  theme(panel.grid.major.y = element_line(colour = "black", linetype = "dashed"), panel.grid.minor = element_blank())+ theme(plot.caption.position = "plot",
+        plot.caption = element_text(hjust = 0))
 
 temas_y_background
 
