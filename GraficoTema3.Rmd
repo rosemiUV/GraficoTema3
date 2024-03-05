@@ -20,7 +20,7 @@ capa_base <- ggplot(COVID_paises_interes, aes(x = date, y = new_deaths_smoothed_
 
 titulos <- capa_base +
   labs(title = "Daily new confirmed COVID-19 deaths per million people",
-       subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This testing as challenges in the attribution of the cause of death.",
+       subtitle = "7-day rolling average. For some countries the number of confirmed deaths.\nThis testing as challenges in the attribution of the cause of death.",
        x = "", 
        y = "",caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)")
 
@@ -40,7 +40,10 @@ temas_y_background <- limites_ejes +
         plot.caption = element_text(hjust = 0))
 
 temas_y_background
+library(plotly)
+ggplotly(temas_y_background)
 
+ggsave("Grafico_Covid.pdf")
 
 ```
 
