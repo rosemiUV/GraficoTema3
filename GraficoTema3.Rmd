@@ -1,10 +1,8 @@
 ---
 title: "GraficoTema3"
-author: 'Grupo V, Tema3 : Visualización de datos'
+author: "Grupo V, Tema3 : Visualización de datos"
 date: "2024-03-01"
-output:
-  pdf_document: default
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -42,10 +40,11 @@ temas_y_background <- limites_ejes +
         plot.caption = element_text(hjust = 0))
 
 temas_y_background
+
 library(plotly)
 ggplotly(temas_y_background)
 
-ggsave("Grafico_Covid.pdf")
+ggsave(temas_y_background, file = "Grafico_Covid.pdf")
 
 ```
 
