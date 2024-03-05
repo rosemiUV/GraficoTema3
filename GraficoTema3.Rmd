@@ -1,8 +1,10 @@
 ---
 title: "GraficoTema3"
-author: "Grupo V, Tema3 : Visualización de datos"
+author: 'Grupo V, Tema3 : Visualización de datos'
 date: "2024-03-01"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
