@@ -36,15 +36,17 @@ limites_ejes <- grosor_linea +
 
 temas_y_background <- limites_ejes +
   theme_classic() +
-  theme(panel.grid.major.y = element_line(colour = "black", linetype = "dashed"), panel.grid.minor = element_blank())+ theme(plot.caption.position = "plot",
-        plot.caption = element_text(hjust = 0))
-
+  theme(panel.grid.major.y = element_line(colour = "black", linetype = "dashed"), panel.grid.minor = element_blank(),plot.caption.position = "plot",
+        plot.title = element_text(color = "gray35", size = 21, family ="serif"),
+        plot.subtitle = element_text(color = "gray45", size = 14, family = "serif"),
+        plot.caption = element_text(color = "gray45 ", size = 12, family = "serif",hjust = 0))
+#serif = Times New Roman
 temas_y_background
 
-library(plotly)
-ggplotly(temas_y_background)
+#library(plotly)
+#ggplotly(temas_y_background)
 
-ggsave(temas_y_background, file = "Grafico_Covid.pdf")
+#ggsave(temas_y_background, file = "Grafico_Covid.pdf")
 
 ```
 
