@@ -19,7 +19,7 @@ capa_base <- ggplot(COVID_paises_interes, aes(x = date, y = new_deaths_smoothed_
   geom_line(linetype = "solid")
 
 capa_base
-#Capa en la que se definen las variables de los ejes junto las del color y el tamaño de las letras correctamente
+#Capa en la que se definen las variables correspondientes los ejes junto las del color y el tamaño de las letras correctamente, el size se usará para poder modificar el de España posteriormente
 
 titulos <- capa_base +
   labs(title = "Daily new confirmed COVID-19 deaths per million people",
