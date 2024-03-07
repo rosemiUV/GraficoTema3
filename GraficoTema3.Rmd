@@ -26,10 +26,10 @@ titulos <- capa_base +
        subtitle = "7-day rolling average. For some countries the number of confirmed deaths. This is because of limited\n testing and challenges in the attribution of the cause of death.",
        x = "",
        y = "",
-       caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)")
+       caption = "Source: Our World in Data: Coronavirus Pandemic (COVID-19)") +                   guides(color = guide_legend(title = ""),size = guide_legend(title = ""))
 
 titulos
-#Se definen el título, subtítulo y pie de gráfico, se eliminan los labs en x e y a parte.
+#Se definen el título, subtítulo y pie de gráfico, se eliminan los labs en x e y junto con el título de la leyenda.
 
 color_especifico <- titulos +
   scale_color_manual(values = c("Spain" = "red", "United States" = "purple", "United Kingdom" = "pink", "Japan" = "darkgrey", "Canada" = "brown", "France" = "orange", "Germany" = "darkgreen", "Italy" = "lightblue"))
